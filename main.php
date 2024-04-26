@@ -40,7 +40,7 @@ $arr = Librarian::select()
                 <h1>Librarian</h1>
                 <table>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Phone</th>
                             <th>Name</th>
                             <th>
