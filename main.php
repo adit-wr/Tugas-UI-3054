@@ -3,7 +3,7 @@ require_once 'librarian.php';
 if (isset($_GET['delete_id'])) {
     $deleteId = $_GET['delete_id'];
     Librarian::delete($deleteId);
-    header("Location: main.php"); // Redirect to refresh the page after deletion
+    header("Location: main.php");
     exit;
 }
 $arr = Librarian::select()
