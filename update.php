@@ -1,29 +1,22 @@
 <?php
 require_once 'librarian.php';
 
-// Pastikan ID telah diberikan melalui parameter URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Panggil metode select dari kelas Librarian untuk mengambil data berdasarkan ID
     $librarianData = Librarian::selectById($id);
 
-    // Pastikan data ditemukan sebelum menampilkan form edit
     if ($librarianData) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Pastikan newphone dan newname sudah tersedia dari formulir
             if (isset($_POST['newphone']) && isset($_POST['newname'])) {
                 $newPhone = $_POST['newphone'];
                 $newName = $_POST['newname'];
 
-                // Panggil metode update dari kelas Librarian
                 Librarian::update($id, $newPhone, $newName);
 
-                // Redirect ke halaman utama setelah update selesai
                 header("Location: main.php");
                 exit;
             } else {
-                // Tampilkan pesan error jika data tidak lengkap
                 echo "Error: Data is incomplete.";
             }
         }
